@@ -1,4 +1,4 @@
-package com.ucomputersa.gateway;
+package com.ucomputersa.common;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

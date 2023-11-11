@@ -1,0 +1,19 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: ucomputersa-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+    gateway:
+      routes:
+        - id: mall_auth_host
+          uri: lb://ucomputersa-auth
+          predicates:
+            - Host=auth.ucomputersa.com
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
