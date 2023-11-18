@@ -8,11 +8,11 @@
         <version>3.0.12</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.ucomputersa</groupId>
-    <artifactId>ucomputersa-auth</artifactId>
+    <groupId>com.example</groupId>
+    <artifactId>ucomputersa-product</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>ucomputersa-auth</name>
-    <description>ucomputersa-auth</description>
+    <name>ucomputersa-product</name>
+    <description>ucomputersa-product</description>
     <properties>
         <java.version>17</java.version>
     </properties>
@@ -23,30 +23,23 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.tomcat.embed</groupId>
-            <artifactId>tomcat-embed-core</artifactId>
-            <version>10.1.8</version>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
         </dependency>
-
-        <dependency>
-            <groupId>com.google.api-client</groupId>
-            <artifactId>google-api-client</artifactId>
-            <version>2.2.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.apis</groupId>
-            <artifactId>google-api-services-gmail</artifactId>
-            <version>v1-rev20220404-2.0.0</version>
-        </dependency>
-
     </dependencies>
-
 
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <image>
+                        <builder>paketobuildpacks/builder-jammy-base:latest</builder>
+                    </image>
+                </configuration>
             </plugin>
         </plugins>
     </build>

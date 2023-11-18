@@ -1,16 +1,15 @@
-package com.ucomputersa.auth;
+package com.ucomputersa.product;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @EnableDiscoveryClient
 @SpringBootApplication
-public class UComputerSAAuthApplication {
+public class UcomputersaProductApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(UComputerSAAuthApplication.class, args);
+        SpringApplication.run(UcomputersaProductApplication.class, args);
     }
 
 }

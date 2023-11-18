@@ -21,11 +21,10 @@ import java.util.List;
 @AllArgsConstructor
 public class MemberEntity implements UserDetails {
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "member_id", unique = true, nullable = false)
     @Id
-    private Integer memberId;
-
+    private String memberId;
 
     @Column(nullable = false)
     private String firstName;
@@ -34,13 +33,13 @@ public class MemberEntity implements UserDetails {
 
     @Column(unique = true, nullable = false)
     private String email;
-    @Column(unique = true, nullable = false)
+    @Column(unique = true)
     private String phone;
 
     @Column
     private String avatar;
 
-    @Column(nullable = false)
+    @Column
     private String password;
 
 
@@ -53,9 +52,13 @@ public class MemberEntity implements UserDetails {
     @Column(name = "last_login_date", nullable = false)
     private LocalDateTime lastLoginDate;
 
+    @Column(name = "is_oauth_enable", nullable = false)
+    private Boolean isOauthEnable;
+
     @Column(nullable = false)
     private List<RoleEnum> roles;
 
+    @Column
     @OneToMany(mappedBy = "addressId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<AddressEntity> address = new java.util.ArrayList<>();
 

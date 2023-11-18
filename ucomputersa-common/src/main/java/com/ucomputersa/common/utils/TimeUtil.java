@@ -17,7 +17,7 @@ public class TimeUtil {
         return Date.from(getCurrentLocalDateTime().atZone(ZONE_ID).toInstant());
     }
 
-    public static Date getCurrentDateTimePlusDays(int days) {
-        return Date.from(getCurrentLocalDateTime().plusDays(days).atZone(ZONE_ID).toInstant());
+    public static Date getCurrentDateTimePlusHours(int hours) {
+        return Date.from(getCurrentLocalDateTime().plusHours(hours).atZone(ZONE_ID).toInstant());
     }
 }

@@ -19,10 +19,6 @@ public class MemberRegisterRequest {
     @Length( max=36,message = "last name should be not longer than 36")
     private String lastName;
 
-    @NotEmpty(message = "last name should be submitted")
-    @Past( message = "Date of birth should be in the past")
-    private LocalDate dateOfBirth;
-
     @NotEmpty(message = "email should be submitted")
     @Email(message = "please enter a validate email")
     private String email;

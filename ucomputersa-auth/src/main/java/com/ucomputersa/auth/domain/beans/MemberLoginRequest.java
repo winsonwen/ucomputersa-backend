@@ -9,7 +9,6 @@ import lombok.ToString;
 @Data
 @ToString
 public class MemberLoginRequest {
-
     @NotEmpty(message = "email should be submitted")
     @Email(message = "please enter a validate email")
     private String email;

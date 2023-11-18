@@ -1,4 +1,4 @@
-package com.ucomputersa.common.hibernateconfig;
+package com.ucomputersa.common.config;
 
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Configuration;
@@ -34,8 +34,7 @@ public class HibernateService {
         return Mono.using(
                 () -> transactionManager.getTransaction(def),
                 ts -> Mono.fromCallable(supplier::get)
-                        .doOnSuccess(result -> transactionManager.commit(ts))
-                        .doOnError(error -> transactionManager.rollback(ts)),
+                        .doOnSuccess(result -> transactionManager.commit(ts)),
                 ts -> {
                 }
         );

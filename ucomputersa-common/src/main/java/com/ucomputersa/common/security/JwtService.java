@@ -57,7 +57,7 @@ public class JwtService {
                 .setClaims(extraClaims)
                 .setSubject(userDetails.getUsername())
                 .setIssuedAt(TimeUtil.getCurrentDateTime())
-                .setExpiration(TimeUtil.getCurrentDateTimePlusDays(1))
+                .setExpiration(TimeUtil.getCurrentDateTimePlusHours(1))
                 .signWith(getSignInKey(), SignatureAlgorithm.HS256)
                 .compact();
     }

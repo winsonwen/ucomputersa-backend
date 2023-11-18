@@ -1,12 +1,12 @@
 server:
-  port: 8082
+  port: 8083
 spring:
   cloud:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
   application:
-    name: ucomputersa-auth
+    name: ucomputersa-product
   datasource:
     username: root
     password: root
@@ -17,14 +17,6 @@ spring:
       maximum-pool-size: 30
       connection-timeout: 10000
       minimum-idle: 10
-  security:
-    oauth2:
-      client:
-        registration:
-          google:
-            client-id: 651897155138-8vte0cv921jkb5ij8gpoait7hmcikojj.apps.googleusercontent.com
-            client-secret: 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
-            redirect-uri: http://localhost:3000/auth/callback
   jpa:
     hibernate:
       ddl-auto: update
