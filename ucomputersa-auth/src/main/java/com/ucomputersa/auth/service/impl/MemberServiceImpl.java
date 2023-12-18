@@ -1,7 +1,6 @@
 package com.ucomputersa.auth.service.impl;
 
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
-import com.google.api.client.googleapis.auth.oauth2.GoogleTokenResponse;
 import com.ucomputersa.auth.constant.GoogleConstant;
 import com.ucomputersa.auth.domain.beans.MemberLoginRequest;
 import com.ucomputersa.auth.domain.beans.MemberRegisterRequest;
@@ -11,7 +10,7 @@ import com.ucomputersa.auth.repository.MemberRepository;
 import com.ucomputersa.auth.service.MemberService;
 import com.ucomputersa.auth.service.RedisService;
 import com.ucomputersa.common.config.HibernateService;
-import com.ucomputersa.common.enumObject.RoleEnum;
+import com.ucomputersa.common.constant.RoleEnum;
 import com.ucomputersa.common.security.JwtService;
 import com.ucomputersa.common.utils.TimeUtil;
 import lombok.AllArgsConstructor;
@@ -41,7 +40,6 @@ public class MemberServiceImpl implements MemberService {
     private JwtService jwtService;
 
     private RedisService redisService;
-
 
     @Override
     public Mono<String> register(MemberRegisterRequest registerRequester) {

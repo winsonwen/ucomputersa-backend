@@ -32,11 +32,11 @@ public class MemberLoginController {
     private static final Logger LOGGER = LoggerFactory.getLogger(MemberLoginController.class);
 
 
-    private final MemberService memberService;
-    private final Validator validator;
-    private final GoogleIdTokenVerifier verifier;
+    private  MemberService memberService;
+    private  Validator validator;
+    private  GoogleIdTokenVerifier verifier;
 
-    private final GoogleService googleService;
+    private  GoogleService googleService;
 
     private final List<String> SCOPES = List.of(GmailScopes.GMAIL_LABELS);
 
@@ -110,8 +110,4 @@ public class MemberLoginController {
                 .defaultIfEmpty(ResponseEntity.badRequest().body("Login Failed"));
     }
 
-    @PostMapping("/test")
-    public Mono<String> ttt() {
-        return Mono.just("ttt");
-    }
 }

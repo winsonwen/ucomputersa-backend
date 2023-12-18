@@ -1,15 +1,16 @@
-package com.ucomputersa.common.enumObject;
+package ucomputersa.constant;
 
 
-public enum RoleEnum {
+public enum ShowStatusEnum {
 
-    REGULAR_MEMBER(1, "regular_member"),
-    ADMIN(2, "admin");
+    NOT_SHOWED(0,"not_showed"),
+
+    SHOWED(1,"showed");
 
     private final int code;
     private final String msg;
 
-    RoleEnum(int code, String msg) {
+    ShowStatusEnum(int code, String msg) {
         this.code = code;
         this.msg = msg;
     }

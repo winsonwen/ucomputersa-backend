@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>ucomputersa-product</artifactId>
+    <artifactId>ucomputersa-order</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>ucomputersa-product</name>
-    <description>ucomputersa-product</description>
+    <name>ucomputersa-order</name>
+    <description>ucomputersa-order</description>
     <properties>
         <java.version>17</java.version>
     </properties>
@@ -22,9 +22,12 @@
             <artifactId>ucomputersa-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+        </dependency>
 
     </dependencies>
-
     <build>
         <plugins>
             <plugin>

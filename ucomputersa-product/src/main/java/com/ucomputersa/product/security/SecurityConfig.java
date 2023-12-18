@@ -1,6 +1,6 @@
 package com.ucomputersa.product.security;
 
-import com.ucomputersa.common.enumObject.RoleEnum;
+import com.ucomputersa.common.constant.RoleEnum;
 import com.ucomputersa.common.security.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;

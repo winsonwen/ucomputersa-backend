@@ -12,6 +12,8 @@
         <module>ucomputersa-common</module>
         <module>ucomputersa-gateway</module>
         <module>ucomputersa-auth</module>
+        <module>ucomputersa-order</module>
+        <module>ucomputersa-product</module>
     </modules>
     <packaging>pom</packaging>
 </project>

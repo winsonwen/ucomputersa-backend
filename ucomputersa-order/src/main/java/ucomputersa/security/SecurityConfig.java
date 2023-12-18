@@ -1,4 +1,4 @@
-package com.ucomputersa.auth.security;
+package ucomputersa.security;
 
 import com.ucomputersa.common.constant.RoleEnum;
 import com.ucomputersa.common.security.JwtAuthenticationFilter;

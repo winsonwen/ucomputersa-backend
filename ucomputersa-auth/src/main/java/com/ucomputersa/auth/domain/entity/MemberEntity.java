@@ -1,6 +1,6 @@
 package com.ucomputersa.auth.domain.entity;
 
-import com.ucomputersa.common.enumObject.RoleEnum;
+import com.ucomputersa.common.constant.RoleEnum;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
