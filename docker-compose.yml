@@ -11,7 +11,7 @@ services:
       MYSQL_PASSWORD: arron
       MYSQL_DATABASE: test
     ports:
-      - "3310:3306"
+      - "3306:3306"
 #  adminer:
 #    image: adminer
 #    restart: always
