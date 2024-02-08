@@ -46,7 +46,7 @@ public class MemberServiceImpl implements MemberService {
         return hibernateService.synchronizeSessionReactive(() -> {
             MemberEntity savedMemberEntity = memberRepository.findByEmail(registerRequester.getEmail());
 
-            if (Objects.nonNull(savedMemberEntity.getPhone())) {
+            if (Objects.nonNull(savedMemberEntity) && Objects.nonNull(savedMemberEntity.getEmail())) {
                 throw new IllegalStateException("This email has been registered already");
             }
 
@@ -64,12 +64,12 @@ public class MemberServiceImpl implements MemberService {
             BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
             String encodedPassword = passwordEncoder.encode(registerRequester.getPassword());
             registerRequester.setPassword(encodedPassword);
-            AddressEntity addressEntity = new AddressEntity();
+//            AddressEntity addressEntity = new AddressEntity();
             BeanUtils.copyProperties(registerRequester, savedMemberEntity);
-            BeanUtils.copyProperties(registerRequester.getAddress(), addressEntity);
+//            BeanUtils.copyProperties(registerRequester.getAddress(), addressEntity);
             savedMemberEntity.setModificationDate(now);
             savedMemberEntity.setLastLoginDate(now);
-            savedMemberEntity.getAddress().add(addressEntity);
+//            savedMemberEntity.getAddress().add(addressEntity);
             memberRepository.save(savedMemberEntity);
             HashMap<String, Object> claims = generateClaims(savedMemberEntity);
             return jwtService.generateToken(claims, savedMemberEntity);

@@ -22,11 +22,11 @@ public class MemberRegisterRequest {
     @NotEmpty(message = "email should be submitted")
     @Email(message = "please enter a validate email")
     private String email;
-    @NotEmpty(message = "phone number should  be submitted")
-    @Pattern(regexp = "^\\d{10}$", message = "The format of phone Number isn't correct")
-    private String phone;
+//    @NotEmpty(message = "phone number should  be submitted")
+//    @Pattern(regexp = "^\\d{10}$", message = "The format of phone Number isn't correct")
+//    private String phone;
     @NotEmpty(message = "password should be submitted")
     private String password;
-    @NotNull(message = "address should be submitted")
-    private AddressBean address;
+//    @NotNull(message = "address should be submitted")
+//    private AddressBean address;
 }

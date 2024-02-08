@@ -18,9 +18,8 @@ public class CorsConfiguration {
         //1. Setting CORS, allow all
         corsConfiguration.addAllowedHeader("*");
         corsConfiguration.addAllowedMethod("*");
-        corsConfiguration.addAllowedOrigin("*");
+        corsConfiguration.addAllowedOriginPattern("*");
         corsConfiguration.setAllowCredentials(true);
-
         // "/**" :config for all paths
         source.registerCorsConfiguration("/**", corsConfiguration);
 

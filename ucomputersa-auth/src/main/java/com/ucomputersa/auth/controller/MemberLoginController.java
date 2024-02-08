@@ -65,7 +65,7 @@ public class MemberLoginController {
                 .flatMap(memberService::oauthLogin)
                 .map(jwtToken -> {
                     httpResponse.getHeaders().add(HttpHeaders.AUTHORIZATION, "Bearer " + jwtToken);
-                    return ResponseEntity.ok("Login Successful");
+                    return ResponseEntity.ok("Bearer " + jwtToken);
                 })
                 .onErrorResume(error -> {
                     if (error instanceof WebClientResponseException webClientResponseException) {
@@ -76,16 +76,22 @@ public class MemberLoginController {
                 });
     }
 
+
+    @GetMapping("/test")
+    public String regiswter(ServerHttpResponse httpResponse ) {
+        return "HELLO WORLD";
+    }
+
     @PostMapping("/register")
     public Mono<ResponseEntity<String>> register(ServerHttpResponse httpResponse, @RequestBody MemberRegisterRequest registerRequest) {
         Set<ConstraintViolation<MemberRegisterRequest>> memberRegisterValidator = validator.validate(registerRequest);
         if (!Collections.isEmpty(memberRegisterValidator)) {
             return Mono.just(ResponseEntity.badRequest().body(memberRegisterValidator.toString()));
         }
-        Set<ConstraintViolation<AddressBean>> addressBeanValidator = validator.validate(registerRequest.getAddress());
-        if (!Collections.isEmpty(addressBeanValidator)) {
-            return Mono.just(ResponseEntity.badRequest().body(addressBeanValidator.toString()));
-        }
+//        Set<ConstraintViolation<AddressBean>> addressBeanValidator = validator.validate(registerRequest.getAddress());
+//        if (!Collections.isEmpty(addressBeanValidator)) {
+//            return Mono.just(ResponseEntity.badRequest().body(addressBeanValidator.toString()));
+//        }
 
         return memberService.register(registerRequest).map(jwtToken -> {
                     httpResponse.getHeaders().add(HttpHeaders.AUTHORIZATION, "Bearer " + jwtToken);
@@ -105,7 +111,7 @@ public class MemberLoginController {
         return memberService.login(loginRequest)
                 .map(jwtToken -> {
                     httpResponse.getHeaders().add(HttpHeaders.AUTHORIZATION, "Bearer " + jwtToken);
-                    return ResponseEntity.ok("Login Successful");
+                    return ResponseEntity.ok("Bearer " + jwtToken);
                 })
                 .defaultIfEmpty(ResponseEntity.badRequest().body("Login Failed"));
     }

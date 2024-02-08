@@ -24,7 +24,7 @@ public class SecurityConfig {
         http
                 .addFilterAt(jwtAuthenticationFilter, SecurityWebFiltersOrder.AUTHENTICATION)
                 .authorizeExchange()
-                .pathMatchers("/member/test").hasAuthority(RoleEnum.REGULAR_MEMBER.name())
+//                .pathMatchers("/member/test").hasAuthority(RoleEnum.REGULAR_MEMBER.name())
                 .anyExchange().permitAll()
                 .and().csrf().disable();
         return http.build();
