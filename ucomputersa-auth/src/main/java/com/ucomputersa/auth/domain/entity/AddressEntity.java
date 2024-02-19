@@ -18,9 +18,9 @@ public class AddressEntity {
     private Integer addressId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "member_id")
+    @JoinColumn(name = "customer_id")
 
-    private MemberEntity memberEntity;
+    private CustomerEntity customerEntity;
 
     @Column(  nullable = false)
     private String streetAddress;

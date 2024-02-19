@@ -1,4 +1,4 @@
-package ucomputersa.service.impl;
+package ucomputersa.domain.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -6,13 +6,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 import ucomputersa.service.MenuService;
-import ucomputersa.service.impl.Menu2Model;
+import ucomputersa.domain.model.Menu2Model;
 
 import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/menu")
+@RequestMapping("/order")
 public class MenuController {
 
     private MenuService menuService;

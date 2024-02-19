@@ -8,9 +8,9 @@ import lombok.ToString;
 
 @Data
 @ToString
-public class MemberLoginRequest {
+public class CustomerLoginRequest {
     @NotEmpty(message = "email should be submitted")
-    @Email(message = "please enter a validate email")
+    @Email(message = "please enter a validate username")
     private String email;
 
     @NotEmpty(message = "password should be submitted")

@@ -1,15 +1,14 @@
-package com.ucomputersa.common.constant;
+package ucomputersa.constant;
 
+public enum ServiceTypeEnum {
 
-public enum RoleEnum {
-
-    REGULAR_CUSTOMER(1, "regular_customer"),
-    ADMIN(2, "admin");
+    DOOR_TO_DOOR(0,"d2d"),
+    TO_STORE(1,"to store");
 
     private final int code;
     private final String msg;
 
-    RoleEnum(int code, String msg) {
+    ServiceTypeEnum(int code, String msg) {
         this.code = code;
         this.msg = msg;
     }

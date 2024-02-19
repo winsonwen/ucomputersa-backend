@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 import ucomputersa.constant.ShowStatusEnum;
 import ucomputersa.domain.entity.MenuEntity;
+import ucomputersa.domain.model.Menu2Model;
 import ucomputersa.repository.MenuRepository;
 import ucomputersa.service.MenuService;
 
@@ -27,9 +28,6 @@ public class MenuServiceImpl implements MenuService {
     private MenuRepository menuRepository;
 
     private HibernateService hibernateService;
-
-    private JwtService jwtService;
-
 
     //TODO Is caching successful? check
     @Cacheable(value = "menu", key = "#root.method.name", sync = true)  //sync = true:local lock

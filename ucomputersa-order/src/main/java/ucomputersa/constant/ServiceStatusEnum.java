@@ -1,7 +1,7 @@
 package ucomputersa.constant;
 
 
-public enum OrderStatusEnum {
+public enum ServiceStatusEnum {
 
     SENDING_CONFIRMATION_EMAIL(1,"sending_confirmation_email"),
 
@@ -18,7 +18,7 @@ public enum OrderStatusEnum {
     private final int code;
     private final String msg;
 
-    OrderStatusEnum(int code, String msg) {
+    ServiceStatusEnum(int code, String msg) {
         this.code = code;
         this.msg = msg;
     }

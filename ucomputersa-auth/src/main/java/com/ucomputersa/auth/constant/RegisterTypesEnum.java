@@ -1,15 +1,16 @@
-package com.ucomputersa.common.constant;
+package com.ucomputersa.auth.constant;
 
 
-public enum RoleEnum {
+public enum RegisterTypesEnum {
+    PASSWORD(1, "password"),
 
-    REGULAR_CUSTOMER(1, "regular_customer"),
-    ADMIN(2, "admin");
+    OATH2(10, "oath2"),
+    BOTH_OATH2_PASSWORD(11,"bothOath2Password");
 
     private final int code;
     private final String msg;
 
-    RoleEnum(int code, String msg) {
+    RegisterTypesEnum(int code, String msg) {
         this.code = code;
         this.msg = msg;
     }

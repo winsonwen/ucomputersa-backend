@@ -17,3 +17,9 @@ spring:
             - Host=auth.ucomputersa.com
           filters:
             - RewritePath=/api/(?<segment>.*),/$\{segment}
+        - id: mall_order_host
+          uri: lb://ucomputersa-order
+          predicates:
+            - Host=order.ucomputersa.com
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}

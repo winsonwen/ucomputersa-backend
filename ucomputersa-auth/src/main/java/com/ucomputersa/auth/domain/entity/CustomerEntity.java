@@ -13,18 +13,18 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Entity
-@Table(name = "member")
+@Table(name = "customer")
 @Getter
 @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MemberEntity implements UserDetails {
+public class CustomerEntity implements UserDetails {
 
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "member_id", unique = true, nullable = false)
+    @Column(name = "customer_id", unique = true, nullable = false)
     @Id
-    private String memberId;
+    private String customerId;
 
     @Column(nullable = false)
     private String firstName;
@@ -33,6 +33,7 @@ public class MemberEntity implements UserDetails {
 
     @Column(unique = true, nullable = false)
     private String email;
+
     @Column(unique = true)
     private String phone;
 
@@ -41,6 +42,9 @@ public class MemberEntity implements UserDetails {
 
     @Column
     private String password;
+
+    @Column(name = "register_type",nullable = false)
+    private String registerType;
 
 
     @Column(name = "create_date", nullable = false)
@@ -51,9 +55,6 @@ public class MemberEntity implements UserDetails {
 
     @Column(name = "last_login_date", nullable = false)
     private LocalDateTime lastLoginDate;
-
-    @Column(name = "is_oauth_enable", nullable = false)
-    private Boolean isOauthEnable;
 
     @Column(nullable = false)
     private List<RoleEnum> roles;
