@@ -66,9 +66,9 @@ public class CustomerLoginController {
     }
 
     @PostMapping("/oauth2.0/login")
-    public Mono<ResponseEntity<R>> oauthGoogleLogin(String credential) {
+    public Mono<ResponseEntity<R>> oauthGoogleLogin(@RequestBody() String idToken) {
         try {
-            return Mono.just(verifier.verify(credential).getPayload())
+            return Mono.just(verifier.verify(idToken).getPayload())
                     .map(customerService::oauthGoogleLogin)
                     .map(jwtModel -> ResponseEntity.ok().body(R.ok(jwtModel)))
                     .onErrorResume(error -> {

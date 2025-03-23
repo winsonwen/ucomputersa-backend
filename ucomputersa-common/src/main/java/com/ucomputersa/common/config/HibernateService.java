@@ -3,6 +3,7 @@ package com.ucomputersa.common.config;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 import reactor.core.publisher.Mono;
 
@@ -31,13 +32,9 @@ public class HibernateService {
 
     public <T> Mono<T> synchronizeSessionReactive(Supplier<T> supplier) {
         DefaultTransactionDefinition def = new DefaultTransactionDefinition();
-        return Mono.using(
-                () -> transactionManager.getTransaction(def),
-                ts -> Mono.fromCallable(supplier::get)
-                        .doOnSuccess(result -> transactionManager.commit(ts)),
-                ts -> {
-                }
-        );
+        TransactionStatus ts = transactionManager.getTransaction(def);
+
+        return Mono.just(supplier.get()).doOnSuccess(result -> transactionManager.commit(ts));
     }
 
 }

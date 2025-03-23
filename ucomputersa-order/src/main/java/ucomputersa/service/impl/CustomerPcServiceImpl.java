@@ -31,7 +31,6 @@ public class CustomerPcServiceImpl implements CustomerPcService {
                 pcServiceEntity.setServiceType(ServiceTypeEnum.TO_STORE);
             } else if (ServiceTypeEnum.DOOR_TO_DOOR.name().equals(createPCServiceRequest.getServiceType())) {
                 pcServiceEntity.setServiceType(ServiceTypeEnum.DOOR_TO_DOOR);
-
             }
 
             LocalDateTime currentLocalDateTime = TimeUtil.getCurrentLocalDateTime();

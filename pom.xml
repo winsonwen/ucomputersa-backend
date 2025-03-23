@@ -14,6 +14,7 @@
         <module>ucomputersa-auth</module>
         <module>ucomputersa-order</module>
         <module>ucomputersa-product</module>
+        <module>ucomputersa-monolithic</module>
     </modules>
     <packaging>pom</packaging>
 </project>

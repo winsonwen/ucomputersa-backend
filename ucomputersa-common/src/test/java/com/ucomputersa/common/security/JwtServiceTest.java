@@ -7,6 +7,8 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.test.context.ContextConfiguration;
 
+import java.security.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.HashMap;
 
@@ -26,7 +28,7 @@ public class JwtServiceTest {
 
         String token = jwtService.generateToken(new HashMap<>(), userDetails);
         boolean isValid = jwtService.isTokenValid(token);
-
+        LocalDateTime now = LocalDateTime.now();
         assertNotNull(token);
         assertTrue(isValid);
     }

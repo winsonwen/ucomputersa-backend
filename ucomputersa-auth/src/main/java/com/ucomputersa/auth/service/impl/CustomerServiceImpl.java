@@ -105,6 +105,11 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public Mono<JwtModel> oauthGoogleLogin(GoogleIdToken.Payload payload) {
         CustomerEntity customerEntity = convertToCustomerEntity(payload);
+
+//        return Mono.just(JwtModel.builder().build());
+
+//      return Mono.fromCallable(()->{return JwtModel.builder().build();});
+
         return hibernateService.synchronizeSessionReactive(() -> {
             CustomerEntity savedCustomerEntity = customerRepository.findByEmail(customerEntity.getEmail());
             LocalDateTime now = TimeUtil.getCurrentLocalDateTime();
